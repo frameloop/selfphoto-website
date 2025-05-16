@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Self·Photo Studio | Fotografía Profesional en Tarragona</title>
+    <meta name="description"
+        content="Self·Photo Studio: fotografía profesional en Tarragona. Retratos corporativos, branding visual y experiencias digitales que importan.">
+
+    <!-- Open Graph para redes -->
+    <meta property="og:title" content="Self·Photo Studio">
+    <meta property="og:description" content="Retratos corporativos, branding visual y mucho más.">
+    <meta property="og:image" content="https://TU_DOMINIO.com/images/og-image.jpg">
+    <meta property="og:url" content="https://TU_DOMINIO.com">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Self·Photo Studio</h1>
+        <p>Creamos experiencias digitales que importan</p>
+        <nav>
+            <a href="#estudio">Estudio</a>
+            <a href="#sesiones">Sesiones</a>
+            <a href="#precios">Precios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="galeria">
+            <h2>Galería</h2>
+            <div class="grid-galeria">
+                <!-- Repite este bloque para cada imagen -->
+                <figure>
+                    <img src="images/ejemplo1.jpeg" alt="Retrato corporativo en estudio" loading="lazy">
+                    <figcaption>Retrato corporativo</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form action="https://formspree.io/f/tu_endpoint" method="POST" novalidate>
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="name" required>
+
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="mensaje">Mensaje</label>
+                <textarea id="mensaje" name="message" rows="5" required></textarea>
+
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <p>© 2025 Self·Photo Studio · Cunit, Tarragona</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>
