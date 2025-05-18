@@ -26,6 +26,20 @@
     <meta name="twitter:url" content="https://www.selfphotostudio.es">
     <meta name="robots" content="index, follow">
 
+    <!-- Cabeceras de Seguridad -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+                script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
+                style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
+                font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
+                img-src 'self' https://www.selfphotostudio.es https://www.google-analytics.com;
+                frame-src 'self' https://www.google.com;
+                connect-src 'self' https://www.google-analytics.com https://formspree.io;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
 
@@ -36,15 +50,21 @@
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5K5LM8VT5"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-Q5K5LM8VT5');
-    </script>
+    <script src="js/analytics.js" defer></script>
 </head>
 
 <body>
+    <div id="cookie-banner">
+        <div class="container">
+            <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas
+                nuestra <a href="politica-cookies.html">política de cookies</a>.</p>
+            <div>
+                <button id="btn-rechazar-cookies">Rechazar</button>
+                <button id="btn-aceptar-cookies">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <header>
             <div class="header-top">
@@ -277,11 +297,12 @@
                 <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos.</p>
                 <form action="https://formspree.io/f/movdrrra" method="POST" novalidate>
                     <label for="nombre">Nombre completo</label>
-                    <input type="text" id="nombre" name="name" required>
+                    <input type="text" id="nombre" name="name" required maxlength="60"
+                        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s\-\.]+">
                     <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="_replyto" required>
+                    <input type="email" id="email" name="_replyto" required maxlength="80">
                     <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="message" rows="5" required></textarea>
+                    <textarea id="mensaje" name="message" rows="5" required maxlength="500"></textarea>
                     <button type="submit">Enviar mensaje</button>
                 </form>
                 <h2>Dirección</h2>
@@ -289,7 +310,7 @@
                 <div class="mapa-container">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1501.12615765268!2d1.6348286114930175!3d41.19447238928082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a3894881d57ba5%3A0x96a1f9ad28b7161b!2sSelf%C2%B7Photo%20Studio%20by%20emestudi!5e0!3m2!1ses!2ses!4v1747561761884!5m2!1ses!2ses"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        width="600" height="450" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </section>
@@ -302,6 +323,7 @@
 
     <!-- JS -->
     <script src="js/main.js" defer></script>
+    <script src="js/cookies.js" defer></script>
 </body>
 
 </html>
