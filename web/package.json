@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,5 +15,8 @@
     "live-server": "^1.2.2",
     "postcss-cli": "^11.0.1",
     "sass": "^1.89.0"
+  },
+  "dependencies": {
+    "puppeteer": "^24.8.2"
   }
 }
