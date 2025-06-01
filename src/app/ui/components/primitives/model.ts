@@ -19,7 +19,7 @@ export interface Styles {
     borderRadius?: string
     overflow?: string
     width?: string
-    flexDirection: any
+    flexDirection: 'column' | 'row'
     maxWidth: string
     justifyContent: 'left' | 'center' | 'right'
     alignItems?: 'left' | 'center' | 'right'

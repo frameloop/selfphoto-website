@@ -24,7 +24,7 @@ export const Separator = ({
         height: toSpacing(height),
         width: toSpacing(width),
         margin: toSpacing(margin),
-        position: absolute ? ('absolute' as 'absolute') : ('relative' as 'relative')
+        position: absolute ? ('absolute' as const) : ('relative' as const)
     }
 
     return <div className={style.separator} style={separatorStyles}></div>

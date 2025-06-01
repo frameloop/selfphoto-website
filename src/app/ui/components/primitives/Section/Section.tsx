@@ -31,10 +31,13 @@ export const Section = ({
         paddingRight: toSpacing(spacing.horizontal),
         maxWidth: width,
         height: fullHeight ? '100%' : 'auto',
-        flexDirection: direction === 'vertical' ? ('column' as 'column') : ('row' as 'row'),
+        flexDirection:
+            direction === 'vertical' ? ('column' as const) : ('row' as const),
         gap: toSpacing(gap),
-        justifyContent: direction === 'horizontal' ? (align as typeof align) : 'flex-start',
-        alignItems: direction === 'vertical' ? (align as typeof align) : 'flex-start'
+        justifyContent:
+            direction === 'horizontal' ? (align as typeof align) : 'flex-start',
+        alignItems:
+            direction === 'vertical' ? (align as typeof align) : 'flex-start'
     }
 
     return (

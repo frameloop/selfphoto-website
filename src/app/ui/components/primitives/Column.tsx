@@ -69,18 +69,16 @@ export const Column = ({
         width: !isSmallDevice ? `${size}%` : '100%',
         background: toColor(background)
     }
-    padding?.vertical ? (styles.paddingTop = toSpacing(padding.vertical)) : null
-    padding?.vertical
-        ? (styles.paddingBottom = toSpacing(padding.vertical))
-        : null
-    padding?.horizontal
-        ? (styles.paddingLeft = toSpacing(padding.horizontal))
-        : null
-    padding?.horizontal
-        ? (styles.paddingRight = toSpacing(padding.horizontal))
-        : null
-    margin ? (styles.margin = toSpacing(margin)) : null
-    fullHeight ? (styles.height = '100%') : null
+    if (padding?.vertical) {
+        styles.paddingTop = toSpacing(padding.vertical)
+        styles.paddingBottom = toSpacing(padding.vertical)
+    }
+    if (padding?.horizontal) {
+        styles.paddingLeft = toSpacing(padding.horizontal)
+        styles.paddingRight = toSpacing(padding.horizontal)
+    }
+    if (margin) styles.margin = toSpacing(margin)
+    if (fullHeight) styles.height = '100%'
 
     return (
         <>

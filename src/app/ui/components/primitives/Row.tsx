@@ -22,7 +22,12 @@ interface Styles {
     flexDirection: 'row' | 'column'
     alignItems: 'flex-start' | 'flex-end' | 'center'
     gap?: string
-    height?: 'auto' | `${string}px` | `${string}em` | `${string}rem` | `${string}%`
+    height?:
+        | 'auto'
+        | `${string}px`
+        | `${string}em`
+        | `${string}rem`
+        | `${string}%`
 }
 
 export const Row = ({
@@ -43,9 +48,9 @@ export const Row = ({
         alignItems: verticalAlign,
         gap: toSpacing(gap)
     }
-    fullHeight ? (styles.height = '100%') : null
-    margin ? (styles.margin = toSpacing(margin)) : null
-    padding ? (styles.padding = toSpacing(padding)) : null
+    if (fullHeight) styles.height = '100%'
+    if (margin) styles.margin = toSpacing(margin)
+    if (padding) styles.padding = toSpacing(padding)
 
     return <div style={styles}>{children}</div>
 }

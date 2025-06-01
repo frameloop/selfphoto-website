@@ -1,7 +1,7 @@
 'use client'
 import React, { createContext, useContext, useState, ReactNode } from 'react'
-import { Absolute, Button, Container, Stack } from '../components/primitives'
-import { Title, Text, Separator } from '../components/molecules'
+import { Absolute, Button, Container } from '../components/primitives'
+import { Title, Text } from '../components/molecules'
 
 interface Button {
     text: string
@@ -71,25 +71,23 @@ export const NotificationProvider = ({ children }: { children: ReactNode }) => {
                             >
                                 {notificationData.title}
                             </Title>
-                            <Stack gap="base">
-                                <Text hierarchy="base" textAlign="center">
-                                    {notificationData.message}
-                                </Text>
-                                {notificationData.buttons.map(
-                                    ({ onClick, text }, index) => (
-                                        <Button
-                                            key={index}
-                                            hierarchy="base"
-                                            onClick={() => {
-                                                onClick()
-                                                hideNotification()
-                                            }}
-                                        >
-                                            {text}
-                                        </Button>
-                                    )
-                                )}
-                            </Stack>
+                            <Text hierarchy="base" textAlign="center">
+                                {notificationData.message}
+                            </Text>
+                            {notificationData.buttons.map(
+                                ({ onClick, text }, index) => (
+                                    <Button
+                                        key={index}
+                                        hierarchy="base"
+                                        onClick={() => {
+                                            onClick()
+                                            hideNotification()
+                                        }}
+                                    >
+                                        {text}
+                                    </Button>
+                                )
+                            )}
                         </Container>
                     </Container>
                 </Absolute>

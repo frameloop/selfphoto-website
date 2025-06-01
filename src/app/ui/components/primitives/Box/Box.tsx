@@ -30,9 +30,9 @@ interface Styles {
     paddingRight?: string
     maxWidth?: string
     flexDirection?: 'column' | 'row'
-    justifyContent: 'left' | 'center' | 'right'
+    justifyContent: 'flex-start' | 'center' | 'flex-end'
     background?: string
-    borderRadius?: number | string
+    borderRadius?: string
     width?: string
 }
 
@@ -49,29 +49,32 @@ export const Box = ({
     width = 'auto'
 }: Props) => {
     const style: Styles = {
-        flexDirection: flexDirection ? 'column' : 'row',
-        justifyContent: align,
+        flexDirection: flexDirection || 'row',
+        justifyContent:
+            align === 'left'
+                ? 'flex-start'
+                : align === 'right'
+                ? 'flex-end'
+                : 'center',
         background: toColor(background),
         borderRadius: toSpacing(borderRadius),
         width: toSize(width)
     }
 
-    margin ? (style.margin = toSpacing(margin)) : null
-    padding?.vertical ? (style.paddingTop = toSpacing(padding.vertical)) : null
-    padding?.vertical
-        ? (style.paddingBottom = toSpacing(padding.vertical))
-        : null
-    padding?.horizontal
-        ? (style.paddingLeft = toSpacing(padding.horizontal))
-        : null
-    padding?.horizontal
-        ? (style.paddingRight = toSpacing(padding.horizontal))
-        : null
-    maxWidth ? (style.maxWidth = toWidth(maxWidth)) : null
+    if (margin) style.margin = toSpacing(margin)
+    if (padding?.vertical) {
+        style.paddingTop = toSpacing(padding.vertical)
+        style.paddingBottom = toSpacing(padding.vertical)
+    }
+    if (padding?.horizontal) {
+        style.paddingLeft = toSpacing(padding.horizontal)
+        style.paddingRight = toSpacing(padding.horizontal)
+    }
+    if (maxWidth) style.maxWidth = toWidth(maxWidth)
 
     return (
         <div className={`${styles.box} ${className}`} style={style}>
-            <>{children}</>
+            {children}
         </div>
     )
 }
