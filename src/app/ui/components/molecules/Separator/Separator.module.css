@@ -1,0 +1,7 @@
+.separator {
+    position: absolute;
+    height: 20px;
+    top: 0px;
+    width: 120%;
+    left: 0;
+}
