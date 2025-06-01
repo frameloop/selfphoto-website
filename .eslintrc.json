@@ -1,0 +1,23 @@
+{
+  "extends": "next",
+  "rules": {
+    "@next/next/no-page-custom-font": "off",
+    // "@next/next/no-page-custom": "off",
+    "react/display-name": "off",
+    // "unused-imports/no-unused-imports": 2,
+    "no-console": "warn",
+    "no-unused-vars": "off"
+    // "@typescript-eslint/no-unused-vars": [
+    //   "warn",
+    //   {
+    //     "varsIgnorePattern": "^_",
+    //     "argsIgnorePattern": "^_"
+    //   }
+    // ],
+    // "unused-imports/no-unused-imports": "warn"
+  },
+  "plugins": [
+    // "unused-imports",
+    // "@typescript-eslint"
+  ]
+}
