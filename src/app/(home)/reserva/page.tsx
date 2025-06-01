@@ -5,9 +5,17 @@ import { Container, Button } from '@/app/ui/components/primitives'
 import { useNavigate } from '@/app/ui/hooks/useNavigate'
 import { fetchApi } from '@/utils/fetch'
 import { useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 
 export default function ReservaPage() {
+    return (
+        <Suspense fallback={<div>Cargando...</div>}>
+            <ReservaContent />
+        </Suspense>
+    )
+}
+
+function ReservaContent() {
     const searchParams = useSearchParams()
     const success = searchParams.get('success') === 'true'
     const date = searchParams.get('date') as string
