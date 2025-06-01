@@ -3,17 +3,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { setGoogleAccessTokenCookie } from '@/actions/user/actions'
 import moment from 'moment'
 
-// const REQUIRED_SCOPES = [
-//     'https://www.googleapis.com/auth/calendar',
-//     'https://www.googleapis.com/auth/calendar.events',
-//     'https://www.googleapis.com/auth/calendar.events.readonly',
-//     'https://www.googleapis.com/auth/calendar.readonly',
-//     'https://www.googleapis.com/auth/calendar.settings.readonly',
-//     'https://www.googleapis.com/auth/calendar.events.owned.readonly',
-//     'https://www.googleapis.com/auth/calendar.events.owned',
-//     'https://www.googleapis.com/auth/calendar.events.public.readonly'
-// ].join(' ')
-
 export async function POST(req: NextRequest) {
     try {
         const cookieStore = await cookies()
@@ -36,10 +25,6 @@ export async function POST(req: NextRequest) {
         const clientId = process.env.GOOGLE_OAUTH_CLIENT_ID
         const clientSecret = process.env.GOOGLE_OAUTH_SECRET
 
-        console.log('refreshToken', refreshToken)
-        console.log('clientId', clientId)
-        console.log('clientSecret', clientSecret)
-
         if (!refreshToken || !clientId || !clientSecret) {
             return NextResponse.json(
                 { error: 'Missing Google OAuth credentials' },
@@ -49,18 +34,13 @@ export async function POST(req: NextRequest) {
 
         let googleAccessToken = cookieStore.get('calendar-token')?.value
 
-        console.log('googleAccessToken', googleAccessToken)
-
         if (!googleAccessToken) {
             const tokenRequest = {
                 client_id: clientId,
                 client_secret: clientSecret,
                 refresh_token: refreshToken,
                 grant_type: 'refresh_token'
-                // scope: REQUIRED_SCOPES
             }
-
-            console.log('tokenRequest', tokenRequest)
 
             const response = await fetch(
                 'https://oauth2.googleapis.com/token',
@@ -73,8 +53,6 @@ export async function POST(req: NextRequest) {
                 }
             )
 
-            console.log('response oauth', response)
-
             if (!response.ok) {
                 const errorData = await response.json().catch(() => ({}))
                 console.error('Error fetching token:', errorData)
@@ -85,30 +63,20 @@ export async function POST(req: NextRequest) {
                 )
             }
 
-            try {
-                const data = await response.json()
-                googleAccessToken = data.access_token
+            const data = await response.json()
+            googleAccessToken = data.access_token
 
-                console.log('googleAccessToken', googleAccessToken)
-
-                if (!googleAccessToken) {
-                    throw new Error('Failed to get access token from Google')
-                }
-
-                cookieStore.set({
-                    name: 'calendar-token',
-                    value: googleAccessToken,
-                    maxAge: 3500,
-                    path: '/'
-                })
-                setGoogleAccessTokenCookie(googleAccessToken)
-            } catch (error) {
-                throw new Error(
-                    `Error parsing token response: ${
-                        error instanceof Error ? error.message : String(error)
-                    }`
-                )
+            if (!googleAccessToken) {
+                throw new Error('Failed to get access token from Google')
             }
+
+            cookieStore.set({
+                name: 'calendar-token',
+                value: googleAccessToken,
+                maxAge: 3500,
+                path: '/'
+            })
+            setGoogleAccessTokenCookie(googleAccessToken)
         }
 
         const calendarId =
@@ -132,19 +100,8 @@ export async function POST(req: NextRequest) {
             )
         }
 
-        try {
-            const data = await events.json()
-            return NextResponse.json(
-                { items: data.items || [] },
-                { status: 200 }
-            )
-        } catch (error) {
-            throw new Error(
-                `Error parsing events response: ${
-                    error instanceof Error ? error.message : String(error)
-                }`
-            )
-        }
+        const data = await events.json()
+        return NextResponse.json({ items: data.items || [] }, { status: 200 })
     } catch (error: unknown) {
         console.error(
             'Error in get-calendar-events:',
@@ -160,13 +117,3 @@ export async function POST(req: NextRequest) {
         )
     }
 }
-
-// if (req.method === 'POST') {
-//     const { iss, sub, scope, aud, exp, iat } = await req.json()
-//     const tokenData = { iss, sub, scope, aud, exp, iat }
-
-//     const token = await jwt.sign(tokenData, process.env.GOOGLE_OAUTH_SECRET!)
-
-//     return NextResponse.json(token)
-
-// }
