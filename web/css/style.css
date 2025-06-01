@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
-
 :root {
     --color-principal: #1a1a1a;
     --color-secundario: #fff;
@@ -157,7 +155,7 @@ main {
     gap: 0.7rem;
     min-width: 180px;
     min-height: 110px;
-    transition: background 0.2s, color 0.2s,
+    transition: background 0.2s, color 0.2s;
 }
 
 .tab .icono {
@@ -173,7 +171,7 @@ main {
     transition: stroke 0.2s, fill 0.2s;
 }
 
-.tab .icono svg circle[fill="#1a1a1a"] {
+.tab .icono svg circle[fill='#1a1a1a'] {
     fill: var(--color-molon);
 }
 
@@ -194,7 +192,7 @@ main {
     fill: #fff;
 }
 
-.tab.active .icono svg circle[fill="#1a1a1a"] {
+.tab.active .icono svg circle[fill='#1a1a1a'] {
     fill: #fff;
 }
 
@@ -208,7 +206,7 @@ main {
     fill: #fff;
 }
 
-.tab:hover .icono svg circle[fill="#1a1a1a"] {
+.tab:hover .icono svg circle[fill='#1a1a1a'] {
     fill: #fff;
 }
 
@@ -237,7 +235,7 @@ main {
     flex-wrap: wrap;
 }
 
-.estudio-grid>div {
+.estudio-grid > div {
     flex: 1 1 250px;
     background: var(--color-gris);
     border-radius: 1rem;
@@ -300,7 +298,6 @@ main {
     font-size: 0.8rem;
     font-weight: 400;
     color: var(--color-principal);
-    ;
 }
 
 .precio-card span {
@@ -344,7 +341,6 @@ main {
 }
 
 .extras-card {
-
     border-radius: 1rem;
     padding: 0.5rem 1.2rem 1.2rem 1.2rem;
     text-align: left;
@@ -391,7 +387,6 @@ main {
     font-size: 1.05rem;
     font-weight: 400;
 }
-
 
 .team-foto {
     display: flex;
@@ -571,7 +566,6 @@ form button {
         padding: 1.2rem 0.5rem 1rem 0.5rem;
         font-size: 1rem;
         border-radius: 1.2rem;
-
     }
 
     .tab .icono {
@@ -581,7 +575,6 @@ form button {
     .tab-section {
         padding: 1.2rem 0.5rem 1.2rem 0.5rem;
     }
-
 }
 
 #cookie-banner {
