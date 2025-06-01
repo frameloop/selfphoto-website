@@ -1,12 +1,32 @@
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
 import '@/app/globals.css'
 import { ReactQueryProvider } from './providers/react-query-provider'
 import { NotificationProvider } from './ui/hooks/useNotification'
+import Script from 'next/script'
 
-const poppins = Poppins({
-    subsets: ['latin'],
-    weight: ['400', '700', '900']
+// Configuración de la fuente con fallback
+const poppins = localFont({
+    src: [
+        {
+            path: '/ui/fonts/poppins/poppins-regular.woff2',
+            weight: '400',
+            style: 'normal'
+        },
+        {
+            path: '/ui/fonts/poppins/poppins-500.woff2',
+            weight: '500',
+            style: 'normal'
+        },
+        {
+            path: '/ui/fonts/poppins/poppins-700.woff2',
+            weight: '700',
+            style: 'normal'
+        }
+    ],
+    display: 'swap',
+    preload: true,
+    fallback: ['system-ui', 'arial']
 })
 
 export const metadata: Metadata = {
@@ -50,16 +70,28 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="es">
+        <html lang="es" className={poppins.className}>
             <head>
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
                 />
-                <script
-                    async
-                    src="https://www.googletagmanager.com/gtag/js?id=G-Q5K5LM8VT5"
-                ></script>
+                <Script
+                    strategy="afterInteractive"
+                    src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+                />
+                <Script
+                    id="google-analytics"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                        `
+                    }}
+                />
             </head>
             <body className={`${poppins.className} flex h-screen flex-col`}>
                 <ReactQueryProvider>
