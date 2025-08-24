@@ -2,30 +2,18 @@
     "version": 2,
     "builds": [
         {
-            "src": "web/server.js",
-            "use": "@vercel/node"
+            "src": "web/**/*",
+            "use": "@vercel/static"
         }
     ],
     "routes": [
         {
-            "src": "/css/(.*)",
-            "dest": "/web/css/$1"
-        },
-        {
-            "src": "/js/(.*)",
-            "dest": "/web/js/$1"
-        },
-        {
-            "src": "/images/(.*)",
-            "dest": "/web/images/$1"
-        },
-        {
-            "src": "/favicon.ico",
-            "dest": "/web/favicon.ico"
+            "src": "/",
+            "dest": "/web/index.html"
         },
         {
             "src": "/(.*)",
-            "dest": "/web/server.js"
+            "dest": "/web/$1"
         }
     ]
 }
