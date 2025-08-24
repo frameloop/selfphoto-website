@@ -4,16 +4,6 @@
     "description": "Root package for SelfPhoto Studio website",
     "private": true,
     "scripts": {
-        "build": "next build",
-        "start": "next start",
-        "dev": "next dev"
-    },
-    "dependencies": {
-        "next": "^14.0.0",
-        "react": "^18.0.0",
-        "react-dom": "^18.0.0"
-    },
-    "engines": {
-        "node": ">=18.0.0"
+        "build": "echo 'No build required'"
     }
 }
