@@ -1,0 +1,13 @@
+{
+    "name": "selfphoto-website-root",
+    "version": "1.0.0",
+    "description": "Root package for SelfPhoto Studio website",
+    "private": true,
+    "scripts": {
+        "build": "echo 'No build required'",
+        "vercel-build": "echo 'No build required'"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
