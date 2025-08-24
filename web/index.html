@@ -325,9 +325,29 @@
         <p>© 2025 Self·Photo Studio · Tarragona</p>
     </footer>
 
-    <!-- JS -->
+    <!-- Scripts -->
     <script src="js/main.js" defer></script>
+    <script src="js/analytics.js" defer></script>
     <script src="js/cookies.js" defer></script>
+    
+    <!-- Vercel Speed Insights (CDN) -->
+    <script>
+        (function() {
+            var script = document.createElement('script');
+            script.src = 'https://vitals.vercel-insights.com/v1/vitals.js';
+            script.async = true;
+            script.onload = function() {
+                if (window.vitals) {
+                    window.vitals.trackCLS();
+                    window.vitals.trackFID();
+                    window.vitals.trackFCP();
+                    window.vitals.trackLCP();
+                    window.vitals.trackTTFB();
+                }
+            };
+            document.head.appendChild(script);
+        })();
+    </script>
 </body>
 
 </html>
