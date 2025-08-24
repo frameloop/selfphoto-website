@@ -105,7 +105,7 @@ main {
     margin-bottom: 0;
     display: flex;
     align-items: left;
-    gap: 0;
+    gap: 0.5rem;
     width: 100%;
     justify-content: flex-end;
     padding-left: 0;
@@ -131,6 +131,32 @@ main {
 .menu-superior a:hover {
     background: var(--color-molon);
     color: #fff;
+}
+
+.menu-superior .instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #fff !important;
+    border: none;
+    transition: all 0.3s ease;
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    min-width: 2.2rem !important;
+    min-height: 2.2rem !important;
+}
+
+.menu-superior .instagram-btn:hover {
+    background: linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #f09433 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+}
+
+.menu-superior .instagram-btn i {
+    font-size: 1.1rem;
 }
 
 .tabs {
