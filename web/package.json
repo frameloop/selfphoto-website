@@ -1,15 +1,24 @@
 {
   "name": "selfphoto-website",
   "version": "1.0.0",
-  "description": "How to start app server:",
-  "main": "index.js",
+  "description": "Sitio web de SelfPhoto Studio",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo 'No build step required for static site'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "website",
+    "photography",
+    "static"
+  ],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "live-server": "^1.2.2",
