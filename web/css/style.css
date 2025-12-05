@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+
 :root {
     --color-principal: #1a1a1a;
     --color-secundario: #fff;
@@ -103,7 +105,7 @@ main {
     margin-bottom: 0;
     display: flex;
     align-items: left;
-    gap: 0;
+    gap: 0.5rem;
     width: 100%;
     justify-content: flex-end;
     padding-left: 0;
@@ -131,6 +133,32 @@ main {
     color: #fff;
 }
 
+.menu-superior .instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #fff !important;
+    border: none;
+    transition: all 0.3s ease;
+    width: 2.2rem !important;
+    height: 2.2rem !important;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    min-width: 2.2rem !important;
+    min-height: 2.2rem !important;
+}
+
+.menu-superior .instagram-btn:hover {
+    background: linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #f09433 100%) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+}
+
+.menu-superior .instagram-btn i {
+    font-size: 1.1rem;
+}
+
 .tabs {
     display: flex;
     justify-content: center;
@@ -155,7 +183,7 @@ main {
     gap: 0.7rem;
     min-width: 180px;
     min-height: 110px;
-    transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s,
 }
 
 .tab .icono {
@@ -171,7 +199,7 @@ main {
     transition: stroke 0.2s, fill 0.2s;
 }
 
-.tab .icono svg circle[fill='#1a1a1a'] {
+.tab .icono svg circle[fill="#1a1a1a"] {
     fill: var(--color-molon);
 }
 
@@ -192,7 +220,7 @@ main {
     fill: #fff;
 }
 
-.tab.active .icono svg circle[fill='#1a1a1a'] {
+.tab.active .icono svg circle[fill="#1a1a1a"] {
     fill: #fff;
 }
 
@@ -206,7 +234,7 @@ main {
     fill: #fff;
 }
 
-.tab:hover .icono svg circle[fill='#1a1a1a'] {
+.tab:hover .icono svg circle[fill="#1a1a1a"] {
     fill: #fff;
 }
 
@@ -235,7 +263,7 @@ main {
     flex-wrap: wrap;
 }
 
-.estudio-grid > div {
+.estudio-grid>div {
     flex: 1 1 250px;
     background: var(--color-gris);
     border-radius: 1rem;
@@ -298,6 +326,7 @@ main {
     font-size: 0.8rem;
     font-weight: 400;
     color: var(--color-principal);
+    ;
 }
 
 .precio-card span {
@@ -341,6 +370,7 @@ main {
 }
 
 .extras-card {
+
     border-radius: 1rem;
     padding: 0.5rem 1.2rem 1.2rem 1.2rem;
     text-align: left;
@@ -387,6 +417,7 @@ main {
     font-size: 1.05rem;
     font-weight: 400;
 }
+
 
 .team-foto {
     display: flex;
@@ -566,6 +597,7 @@ form button {
         padding: 1.2rem 0.5rem 1rem 0.5rem;
         font-size: 1rem;
         border-radius: 1.2rem;
+
     }
 
     .tab .icono {
@@ -575,6 +607,7 @@ form button {
     .tab-section {
         padding: 1.2rem 0.5rem 1.2rem 0.5rem;
     }
+
 }
 
 #cookie-banner {

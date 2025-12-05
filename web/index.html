@@ -6,6 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Consent Mode default (denied) before GTM -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'analytics_storage': 'denied'
+        });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TTLKTC7N');</script>
+    <!-- End Google Tag Manager -->
+
+
     <!-- SEO -->
     <title>Fotógrafo en Tarragona | Estudio Fotográfico Self·Photo Studio</title>
     <meta name="description"
@@ -27,13 +49,14 @@
     <meta name="robots" content="index, follow">
 
     <!-- Cabeceras de Seguridad -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; 
                 script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
                 style-src 'self' https://fonts.googleapis.com https://cdnjs.cloudflare.com; 
                 font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com;
                 img-src 'self' https://www.selfphotostudio.es https://www.google-analytics.com;
-                frame-src 'self' https://www.google.com;
-                connect-src 'self' https://www.google-analytics.com https://formspree.io;">
+                frame-src 'self' https://www.google.com https://www.googletagmanager.com;
+                connect-src 'self' https://www.google-analytics.com https://formspree.io https://www.googletagmanager.com;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
@@ -48,12 +71,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="canonical" href="https://www.selfphotostudio.es/">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5K5LM8VT5"></script>
-    <script src="js/analytics.js" defer></script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TTLKTC7N" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div id="cookie-banner">
         <div class="container">
             <p>Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas
@@ -70,6 +94,10 @@
             <div class="header-top">
                 <a href="https://www.emestudi.es" class="marca-emestudi" target="_blank">emestudi</a>
                 <nav class="menu-superior">
+                    <a href="https://www.instagram.com/self_photo_emestudi" class="instagram-btn" target="_blank"
+                        rel="noopener noreferrer" aria-label="Síguenos en Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
                     <a href="#" id="menu-contacto">Contacto</a>
                 </nav>
             </div>
@@ -198,40 +226,36 @@
                 <div class="precios-grid">
                     <div class="precios-wrapper">
                         <div class="precio-card">
-                            <h3>BRONCE <span>35€</span></h3>
+                            <h3>BRONCE <span>45€</span></h3>
                             <ul>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 20 min de Sesión</li>
-                                <li><i class="fa-solid fa-print icono-impresora"></i> 2 Fotos Impresas</li>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 10 min de Selección</li>
                                 <li><i class="fa-solid fa-cloud icono-nube"></i> Todas las fotos en la nube</li>
                             </ul>
                             <p>1 persona incl. / máx. 5*</p>
                         </div>
                         <div class="precio-card">
-                            <h3>PLATA <span>50€</span></h3>
+                            <h3>PLATA <span>65€</span></h3>
                             <ul>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 30 min de Sesión</li>
-                                <li><i class="fa-solid fa-print icono-impresora"></i> 3 Fotos Impresas</li>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 10 min de Selección</li>
                                 <li><i class="fa-solid fa-cloud icono-nube"></i> Todas las fotos en la nube</li>
                             </ul>
                             <p>2 personas incl. / máx. 5*</p>
                         </div>
                         <div class="precio-card">
-                            <h3>ORO <span>65€</span></h3>
+                            <h3>ORO <span>85€</span></h3>
                             <ul>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 45 min de Sesión</li>
-                                <li><i class="fa-solid fa-print icono-impresora"></i> 5 Fotos Impresas</li>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 10 min de Selección</li>
                                 <li><i class="fa-solid fa-cloud icono-nube"></i> Todas las fotos en la nube</li>
                             </ul>
                             <p>2 personas incl. / máx. 5*</p>
                         </div>
                         <div class="precio-card">
-                            <h3>ORO + MASCOTAS <span>80€</span></h3>
+                            <h3>ORO + MASCOTAS <span>95€</span></h3>
                             <ul>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 60 min de Sesión</li>
-                                <li><i class="fa-solid fa-print icono-impresora"></i> 6 Fotos Impresas</li>
                                 <li><i class="fa-regular fa-clock icono-reloj"></i> 10 min de Selección</li>
                                 <li><i class="fa-solid fa-cloud icono-nube"></i> Todas las fotos en la nube</li>
                             </ul>
@@ -321,9 +345,28 @@
         <p>© 2025 Self·Photo Studio · Tarragona</p>
     </footer>
 
-    <!-- JS -->
+    <!-- Scripts -->
     <script src="js/main.js" defer></script>
     <script src="js/cookies.js" defer></script>
+
+    <!-- Vercel Speed Insights (CDN) -->
+    <script>
+        (function () {
+            var script = document.createElement('script');
+            script.src = 'https://vitals.vercel-insights.com/v1/vitals.js';
+            script.async = true;
+            script.onload = function () {
+                if (window.vitals) {
+                    window.vitals.trackCLS();
+                    window.vitals.trackFID();
+                    window.vitals.trackFCP();
+                    window.vitals.trackLCP();
+                    window.vitals.trackTTFB();
+                }
+            };
+            document.head.appendChild(script);
+        })();
+    </script>
 </body>
 
 </html>
