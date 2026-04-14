@@ -38,46 +38,68 @@ menuContacto.addEventListener('click', (e) => {
 // Validación del formulario de contacto
 const form = document.querySelector('form[action="https://formspree.io/f/movdrrra"]');
 if (form) {
+    const nombreInput = form.nombre;
+    const emailInput = form.email;
+    const telefonoInput = form.telefono;
+    const mensajeInput = form.mensaje;
+
+    function limpiarErrores() {
+        [nombreInput, emailInput, telefonoInput, mensajeInput].forEach(input => {
+            input.setCustomValidity('');
+        });
+    }
+
+    [nombreInput, emailInput, telefonoInput, mensajeInput].forEach(input => {
+        input.addEventListener('input', () => input.setCustomValidity(''));
+    });
+
     form.addEventListener('submit', function (e) {
-        let valido = true;
-        let mensajes = [];
-        const nombre = form.nombre.value.trim();
-        const email = form.email.value.trim();
-        const mensaje = form.mensaje.value.trim();
+        limpiarErrores();
+
+        const nombre = nombreInput.value.trim();
+        const email = emailInput.value.trim();
+        const telefono = telefonoInput.value.trim();
+        const mensaje = mensajeInput.value.trim();
+
         // Validación nombre
+        if (!nombre) {
+            e.preventDefault();
+            nombreInput.setCustomValidity('El nombre completo es obligatorio.');
+            nombreInput.reportValidity();
+            return;
+        }
         if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s\-\.]{2,60}$/.test(nombre)) {
-            valido = false;
-            mensajes.push('El nombre solo puede contener letras, espacios, guiones y puntos (2-60 caracteres).');
+            e.preventDefault();
+            nombreInput.setCustomValidity('El nombre solo puede contener letras, espacios, guiones y puntos (2-60 caracteres).');
+            nombreInput.reportValidity();
+            return;
         }
         // Validación email
         if (!/^\S+@\S+\.\S+$/.test(email) || email.length > 80) {
-            valido = false;
-            mensajes.push('Introduce un correo electrónico válido (máx. 80 caracteres).');
+            e.preventDefault();
+            emailInput.setCustomValidity('Introduce un correo electrónico válido (máx. 80 caracteres).');
+            emailInput.reportValidity();
+            return;
+        }
+        // Validación teléfono
+        if (!/^[0-9+\s()-]{6,20}$/.test(telefono)) {
+            e.preventDefault();
+            telefonoInput.setCustomValidity('Introduce un número de teléfono válido (6-20 caracteres).');
+            telefonoInput.reportValidity();
+            return;
         }
         // Validación mensaje
         if (mensaje.length < 5 || mensaje.length > 500) {
-            valido = false;
-            mensajes.push('El mensaje debe tener entre 5 y 500 caracteres.');
+            e.preventDefault();
+            mensajeInput.setCustomValidity('El mensaje debe tener entre 5 y 500 caracteres.');
+            mensajeInput.reportValidity();
+            return;
         }
         // Sanitización básica
-        if (/<|>|script|onerror|onload|javascript:/i.test(nombre + email + mensaje)) {
-            valido = false;
-            mensajes.push('No se permiten caracteres o palabras sospechosas.');
-        }
-        // Mostrar errores
-        let errorDiv = document.getElementById('form-errores');
-        if (!errorDiv) {
-            errorDiv = document.createElement('div');
-            errorDiv.id = 'form-errores';
-            errorDiv.style.color = 'red';
-            errorDiv.style.marginBottom = '1rem';
-            form.insertBefore(errorDiv, form.firstChild);
-        }
-        if (!valido) {
+        if (/<|>|script|onerror|onload|javascript:/i.test(nombre + email + telefono + mensaje)) {
             e.preventDefault();
-            errorDiv.innerHTML = mensajes.join('<br>');
-        } else {
-            errorDiv.innerHTML = '';
+            mensajeInput.setCustomValidity('No se permiten caracteres o palabras sospechosas.');
+            mensajeInput.reportValidity();
         }
     });
 } 
